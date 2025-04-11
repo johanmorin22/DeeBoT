@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DBT Coping Skills App</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 1rem; max-width: 600px; margin: auto; background: #f8f9fa; }
+    h1, h2 { text-align: center; }
+    label, select, input, button { display: block; width: 100%; margin-top: 1rem; padding: 0.5rem; }
+    #suggestions { margin-top: 2rem; background: #fff; padding: 1rem; border-radius: 8px; }
+    footer { margin-top: 2rem; font-size: 0.8rem; text-align: center; color: #777; }
+  </style>
+</head>
+<body>
+  <h1>🧠 DBT Coping Skill App</h1>
+  <form id="copingForm">
+    <label for="emotion">How are you feeling?</label>
+    <input type="text" id="emotion" name="emotion" required />
+    <label for="goal">What do you need help with?</label>
+    <select id="goal" name="goal" required>
+      <option value="">Select one</option>
+      <option value="emotion regulation">Emotion Regulation</option>
+      <option value="distress tolerance">Distress Tolerance</option>
+      <option value="mindfulness">Mindfulness</option>
+      <option value="interpersonal effectiveness">Interpersonal Effectiveness</option>
+    </select>
+    <button type="submit">Get Coping Suggestions</button>
+  </form>
+  <div id="suggestions"></div>
+  <footer>
+    <p><strong>Disclaimer:</strong> This tool is not a replacement for professional care. If in crisis, call or text <strong>988</strong>.</p>
+  </footer>
+  <script>
+    const skills = {
+      "emotion regulation": [
+        { text: "Try 'Opposite Action': When your emotions urge a specific behavior (like hiding when sad), do the opposite to shift your mood." },
+        { text: "Use 'PLEASE': Take care of your body with balanced meals, avoid substances, exercise, sleep well—physical wellness impacts emotions." },
+        { text: "Make a joy list: List small actions that bring joy—like petting a dog, dancing, or drawing—and do one now." }
+      ],
+      "distress tolerance": [
+        { text: "Use 'TIPP': Regulate body chemistry quickly using cold water (Temperature), intense movement, paced breathing, and muscle relaxation." },
+        { text: "Distract using 'ACCEPTS': Engage in Activities, help others (Contributing), compare past successes, shift Emotions, Push away stress, focus Thoughts, or use Sensory tools." },
+        { text: "Grab something grounding (like an ice cube or textured object) and focus only on it for 1 minute to calm distress." }
+      ],
+      "mindfulness": [
+        { text: "'Observe, Describe, Participate': Notice your experiences without judgment, put them into words, and engage fully in the moment." },
+        { text: "Use 'Wise Mind': Combine your Emotional Mind and Rational Mind for balanced, intuitive decision-making." },
+        { text: "Breathing meditation: Inhale slowly (count to 4), exhale (count to 4), and repeat while gently labeling the breath." }
+      ],
+      "interpersonal effectiveness": [
+        { text: "Use 'DEAR MAN': Express needs clearly—Describe the situation, Express feelings, Assert needs, Reinforce outcomes, stay Mindful, Appear confident, and Negotiate." },
+        { text: "'GIVE' for relationships: Be Gentle, show Interest, Validate the other, and keep an Easy manner." },
+        { text: "'FAST' for self-respect: Be Fair, don’t over-Apologize, Stick to your values, and be Truthful." }
+      ]
+    };
+
+    document.getElementById('copingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const emotion = document.getElementById('emotion').value;
+      const goal = document.getElementById('goal').value;
+      const suggestions = skills[goal] || [];
+      let html = '<h2>Suggestions</h2><ul>';
+      suggestions.forEach(s => {
+        html += `<li>${s.text}</li>`;
+      });
+      html += '</ul>';
+      document.getElementById('suggestions').innerHTML = html;
+    });
+  </script>
+</body>
+</html>
