@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DBT Coping Skills App</title>
+  <!-- Styles and other head content -->
+</head>
+<body>
+<!-- Your complete app HTML including the updated skills and rendering logic goes here -->
+<!-- For demo, replace with your actual updated HTML -->
+<script>
+  const skills = {
+    "emotion regulation": [
+      { text: "Try 'Opposite Action': When your emotions urge a specific behavior (like hiding when sad), do the opposite to shift your mood." },
+      { text: "Use 'PLEASE': Take care of your body with balanced meals, avoid substances, exercise, sleep well—physical wellness impacts emotions." },
+      { text: "Make a joy list: List small actions that bring joy—like petting a dog, dancing, or drawing—and do one now." }
+    ],
+    "distress tolerance": [
+      { text: "Use 'TIPP': Regulate body chemistry quickly using cold water (Temperature), intense movement, paced breathing, and muscle relaxation." },
+      { text: "Distract using 'ACCEPTS': Engage in Activities, help others (Contributing), compare past successes, shift Emotions, Push away stress, focus Thoughts, or use Sensory tools." },
+      { text: "Grab something grounding (like an ice cube or textured object) and focus only on it for 1 minute to calm distress." }
+    ],
+    "mindfulness": [
+      { text: "'Observe, Describe, Participate': Notice your experiences without judgment, put them into words, and engage fully in the moment." },
+      { text: "Use 'Wise Mind': Combine your Emotional Mind and Rational Mind for balanced, intuitive decision-making." },
+      { text: "Breathing meditation: Inhale slowly (count to 4), exhale (count to 4), and repeat while gently labeling the breath." }
+    ],
+    "interpersonal effectiveness": [
+      { text: "Use 'DEAR MAN': Express needs clearly—Describe the situation, Express feelings, Assert needs, Reinforce outcomes, stay Mindful, Appear confident, and Negotiate." },
+      { text: "'GIVE' for relationships: Be Gentle, show Interest, Validate the other, and keep an Easy manner." },
+      { text: "'FAST' for self-respect: Be Fair, don’t over-Apologize, Stick to your values, and be Truthful." }
+    ]
+  };
+
+  const suggestions = skills["mindfulness"];
+  let html = "<ul>";
+  suggestions.forEach(s => {
+    html += `<li>${s.text}</li>`;
+  });
+  html += "</ul>";
+  document.write(html);
+</script>
+</body>
+</html>
